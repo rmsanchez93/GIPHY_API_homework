@@ -45,31 +45,38 @@ $(document).ready(function(){
             
             
             
-        });
-    });
-    
-    
-    $('.whatever').on("click",function(){
-        console.log("class whatever clicked");
-        var active = $(this).data("active");
-        var still = $(this).data("still");
-
-        if ($(this).attr("data-animate") === "still"){
-
-            console.log(active);
-            console.log(still);
-
-            $(this).attr("src", $(this).attr("data-active"));
-            $(this).attr("data-animate", "active");
-
-        }
-    })
-
-
-
-
-
-
+            
+            $('.whatever').on("click",function(){
+                console.log("class whatever clicked");
+                var active = $(this).data("active");
+                var still = $(this).data("still");
+                
+                if ($(this).attr("data-animate") === "still"){
+                    
+                        console.log(active);
+                        console.log(still);
+                    
+                        $(this).attr("src", active);
+                        $(this).attr("data-animate", "active");
+                    
+                    }
+                })
+                
+                
+                $(".ask").on("click", function(){
+                    var search = $(this).val().trim();
+                    var butt = $("<button>");
+                    butt.text(search);
+                    grabDiv.append(butt);
+                })
+                
+                
+                
+                
+                
+            });
+                
+            });
 
 
 
