@@ -6,6 +6,7 @@ body{
 }
 button{
     height: 50px;
+    padding: 30px;
 }
 .whatever{
     float:  left;

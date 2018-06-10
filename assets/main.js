@@ -24,6 +24,7 @@ $(document).ready(function(){
         var queryURL = "https://api.giphy.com/v1/gifs/search?q="+search+"&api_key="+APIKey+"&limit=10" // basic setup for a querysearch on GIPHY
         
         var grabDiv = $("#main"); //grab success
+        var grabSec = $("#secondary");
         
         // ajax call lets see if it works
         $.ajax({
@@ -34,15 +35,35 @@ $(document).ready(function(){
             console.log(response) //this is where you get all url stuff for your gifs
             //make new div
             for (let i = 0; i<response.data.length; i++){
-                var gif = $("<div class = 'whatever' >");
-                gif.html(`<img src= ${response.data[i].images.fixed_height.url}>`); // this all works
-                grabDiv.append(gif);
+                var gif = $(`<div class = 'whatever' data-active = "${response.data[i].images.fixed_height.url}" data-still = "${response.data[i].images.fixed_height_still.url}"  > `);
+                gif.html(`<p>RATING: ${response.data[i].rating} </p><br> <img src= ${response.data[i].images.fixed_height_still.url}>`); // this all works
+                gif.attr("data-animate", "still");
+                grabSec.append(gif);
+
             }
-    
+ 
+            
+            
+            
         });
     });
-   
+    
+    
+    $('.whatever').on("click",function(){
+        console.log("class whatever clicked");
+        var active = $(this).data("active");
+        var still = $(this).data("still");
 
+        if ($(this).attr("data-animate") === "still"){
+
+            console.log(active);
+            console.log(still);
+
+            $(this).attr("src", $(this).attr("data-active"));
+            $(this).attr("data-animate", "active");
+
+        }
+    })
 
 
 
