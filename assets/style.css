@@ -3,11 +3,20 @@ body{
     background: black;
     color: aqua;
     max-width: 900px;
+    margin: auto;
+    text-align: center;
 }
 button{
-    height: 50px;
-    padding: 30px;
+    height: 30px;
+
 }
 .whatever{
     float:  left;
+    text-align: center;
+    margin-left: 2px;
+}
+
+.ask{
+    margin-right: 15px;
+    
 }

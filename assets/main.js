@@ -48,6 +48,7 @@ $(document).ready(function(){
             
             $('.whatever').on("click",function(){
                 console.log("class whatever clicked");
+                var image = $(this);
                 var active = $(this).data("active");
                 var still = $(this).data("still");
                 
@@ -56,15 +57,19 @@ $(document).ready(function(){
                         console.log(active);
                         console.log(still);
                     
-                        $(this).attr("src", active);
-                        $(this).attr("data-animate", "active");
+                        image.attr("src", active);
+                        image.attr("data-animate", "active");
                     
+                    }
+                    else{
+                        image.attr("src", still)
+                        image.attr("data-animate", "still")
                     }
                 })
                 
                 
-                $(".ask").on("click", function(){
-                    var search = $(this).val().trim();
+                $(".search").on("click", function(){
+                    var search = $(".ask").val().trim();
                     var butt = $("<button>");
                     butt.text(search);
                     grabDiv.append(butt);
